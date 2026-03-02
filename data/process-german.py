@@ -3,7 +3,7 @@ import numpy as np
 from string import punctuation
 
 def read_file(path, vocab):
-    """Read in a single CHILDES file and update the vocabulary with the lemmas in that file"""
+    """Read in a single German-CHILDES file and update the vocabulary with the lemmas in that file"""
     file = open(path)
     for line in file.readlines():
         # This means that it's the start of a new utterance
@@ -34,7 +34,7 @@ def main(childes_path, celex_path, out_path):
     """The main function to extract the data"""
     np.random.seed(42)
 
-    # Get all the .cha filepaths from CHILDES
+    # Get all the .cha filepaths from German-CHILDES
     file_paths = []
     for root, dirs, files in os.walk(childes_path):
         for fname in files:
@@ -76,7 +76,7 @@ def main(childes_path, celex_path, out_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--childes", required=True, help="Path to CHILDES data")
+    parser.add_argument("--childes", required=True, help="Path to German-CHILDES data")
     parser.add_argument("--celex", required=True, help="Path to CELEX data")
     parser.add_argument("--out", required=True, help = "Path to write output data to")
     args = parser.parse_args()
